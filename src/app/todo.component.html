@@ -1,0 +1,23 @@
+<md-card class="container">
+  <form (ngSubmit)="onSubmit()">
+    <md-input-container class="input-todo-container">
+      <input mdInput placeholder="Add todo item" name="text" [(ngModel)]="text">
+    </md-input-container>
+
+    <button type="submit" md-fab [disabled]="text===''">Add</button>
+
+    <p class="button-clear-container">
+      <a md-button color="primary" (click)="clearTodos()">Clear</a>
+    </p>
+
+    <md-list>
+      <md-list-item *ngFor="let todo of todos">
+        <md-checkbox
+          [checked]="todo.isCompleted"
+          (change)="toggleTodo(todo.id)">
+            {{todo.text}}
+        </md-checkbox>
+      </md-list-item>
+    </md-list>
+  </form>
+</md-card>

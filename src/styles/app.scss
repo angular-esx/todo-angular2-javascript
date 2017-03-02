@@ -1,0 +1,24 @@
+@import '~@angular/material/core/theming/prebuilt/indigo-pink.scss';
+
+body {
+  margin: 0;
+}
+
+.todo {
+  display: block;
+  margin-top: 12px;
+}
+
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.input-todo-container {
+  width: calc(100% - 78px);
+}
+
+.button-clear-container {
+  text-align: right;
+  margin-bottom: 0;
+}
