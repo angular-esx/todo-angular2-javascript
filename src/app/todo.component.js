@@ -2,35 +2,41 @@ import { Component } from '@angular/core';
 
 import { TodoService } from './todo.service';
 
-export const TodoComponent = Component({
-  selector: 'todo',
-  templateUrl: './todo.component.html'
-}).Class({
-  constructor: [TodoService, function(todoService) {
+export class TodoComponent {
+  constructor(todoService) {
     this.todoService = todoService;
 
     this.text = '';
-  }],
+  }
 
-  ngOnInit: function() {
+  ngOnInit() {
     this.todos = this.todoService.getTodos();
-  },
+  }
 
-  onSubmit: function() {
+  onSubmit() {
     this.todoService.addTodo(this.text);
 
     this.text = '';
 
     this.todos = this.todoService.getTodos();
-  },
+  }
 
-  toggleTodo: function(id) {
+  toggleTodo(id) {
     this.todoService.toggleTodo(id);
-  },
+  }
 
-  clearTodos: function() {
+  clearTodos() {
     this.todoService.clearTodos();
 
     this.todos = [];
-  },
-});
+  }
+}
+
+TodoComponent.parameters = [TodoService];
+
+TodoComponent.annotations = [
+  new Component({
+    selector: 'todo',
+    templateUrl: './todo.component.html'
+  })
+];

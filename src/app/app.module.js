@@ -9,20 +9,22 @@ import { AppComponent } from './app.component';
 import { TodoComponent } from './todo.component';
 import { TodoService } from './todo.service';
 
-export const AppModule = NgModule({
-  imports: [
-    BrowserModule,
-    MaterialModule,
-    FormsModule,
-  ],
-  declarations: [
-    AppComponent,
-    TodoComponent
-  ],
-  providers: [
-    TodoService
-  ],
-  bootstrap: [AppComponent]
-}).Class({
-  constructor: function() {}
-});
+export class AppModule {}
+
+AppModule.annotations = [
+  new NgModule({
+    imports: [
+      BrowserModule,
+      MaterialModule,
+      FormsModule,
+    ],
+    declarations: [
+      AppComponent,
+      TodoComponent
+    ],
+    providers: [
+      TodoService
+    ],
+    bootstrap: [AppComponent]
+  })
+];

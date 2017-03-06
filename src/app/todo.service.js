@@ -1,19 +1,19 @@
 import { Class, Inject } from '@angular/core';
 import { window } from '@angular/platform-browser/src/facade/browser';
 
-export const TodoService = Class({
-  constructor: function(){
-      this.localStorage = window.localStorage;
-      this.json = window.JSON;
-  },
+export class TodoService {
+  constructor() {
+    this.localStorage = window.localStorage;
+    this.json = window.JSON;
+  }
 
-  getTodos: function() {
+  getTodos() {
     let todos = this.json.parse(this.localStorage.getItem('todos') || '[]');
 
     return todos;
-  },
+  }
 
-  addTodo: function(todo) {
+  addTodo(todo) {
 
     let todos = this.getTodos();
 
@@ -25,13 +25,13 @@ export const TodoService = Class({
 
     this.localStorage.setItem('todos', this.json.stringify(todos));
 
-  },
+  }
 
-  toggleTodo: function(id) {
+  toggleTodo(id) {
     let todos = this.getTodos();
 
     todos.map((todo) => {
-      if(todo.id === id) {
+      if (todo.id === id) {
         todo.isCompleted = !todo.isCompleted;
       }
 
@@ -39,10 +39,10 @@ export const TodoService = Class({
     });
 
     this.localStorage.setItem('todos', this.json.stringify(todos));
-  },
+  }
 
-  clearTodos: function() {
+  clearTodos() {
     this.localStorage.removeItem('todos');
-  },
+  }
 
-});
+}
