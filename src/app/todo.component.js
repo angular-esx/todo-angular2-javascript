@@ -2,7 +2,13 @@ import { Component } from '@angular/core';
 
 import { TodoService } from './todo.service';
 
+@Component({
+  selector: 'todo',
+  templateUrl: './todo.component.html'
+})
 export class TodoComponent {
+  static parameters = [TodoService]
+
   constructor(todoService) {
     this.todoService = todoService;
 
@@ -31,12 +37,3 @@ export class TodoComponent {
     this.todos = [];
   }
 }
-
-TodoComponent.parameters = [TodoService];
-
-TodoComponent.annotations = [
-  new Component({
-    selector: 'todo',
-    templateUrl: './todo.component.html'
-  })
-];

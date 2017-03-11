@@ -4,6 +4,3 @@ import 'core-js/es7/reflect';
 // Load zone.js early within polyfills.ts,
 // immediately after the other ES6 and metadata shims.
 require('zone.js/dist/zone');
-
-// Development and test
-  require('zone.js/dist/long-stack-trace-zone');
